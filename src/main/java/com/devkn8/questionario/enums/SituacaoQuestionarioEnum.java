@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 public enum SituacaoQuestionarioEnum {
 
+	INDEFINIDO(0, "Indefinido"),
 	EDICAO(1, "Edição"),
 	REVISAO(2, "Revisão"),
 	ATIVO(3, "Ativo"),
