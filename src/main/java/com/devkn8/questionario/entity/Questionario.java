@@ -2,6 +2,7 @@ package com.devkn8.questionario.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.devkn8.questionario.enums.SituacaoQuestionarioEnum;
@@ -40,8 +41,14 @@ public class Questionario implements Serializable {
 	@Column(name = "CD_EST_QSTN", nullable = false)
 	private Integer								codigoSituacao;
 
+	@Column(name = "TS_INC_VLDD_QSTN")
+	private LocalDateTime						inicioValidade;
+
+	@Column(name = "TS_FIM_VLDD_QSTN")
+	private LocalDateTime						fimValidade;
+
 	@Column(name = "OBJ_QSTN", length = 1200)
-	private String								objeto;
+	private String								objetivo;
 
 	@Column(name = "TX_AJD_QSTN", length = 1200)
 	private String								ajuda;
@@ -54,19 +61,25 @@ public class Questionario implements Serializable {
 	@OneToMany
 	@JoinColumn(name = "CD_QSTN", updatable = false, insertable = false)
 	private List<HistoricoSituacaoQuestionario>	situacoes;
-	
+
+	@lombok.ToString.Exclude
+	@lombok.EqualsAndHashCode.Exclude
+	@OneToMany
+	@JoinColumn(name = "CD_QSTN", updatable = false, insertable = false)
+	private List<GrupoItem>						gruposItem;
+
 	public SituacaoQuestionarioEnum getSituacao() {
 		return SituacaoQuestionarioEnum.getByCodigo(codigoSituacao);
 	}
-	
+
 	public void setSituacao(SituacaoQuestionarioEnum situacao) {
 		this.codigoSituacao = situacao != null ? situacao.codigo : SituacaoQuestionarioEnum.INDEFINIDO.codigo;
 	}
-	
+
 	public TipoQuestionarioEnum getTipo() {
 		return TipoQuestionarioEnum.getByCodigo(codigoTipoQuestionario);
 	}
-	
+
 	public void setTipo(TipoQuestionarioEnum tipo) {
 		this.codigoTipoQuestionario = tipo != null ? tipo.codigo : TipoQuestionarioEnum.INDEFINIDO.codigo;
 	}
