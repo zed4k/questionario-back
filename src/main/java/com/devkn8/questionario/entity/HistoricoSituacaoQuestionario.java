@@ -29,10 +29,10 @@ public class HistoricoSituacaoQuestionario {
 	private Integer			codigoSituacao;
 
 	@Id
-	@Column(name = "dt_inc_est")
+	@Column(name = "ts_inc_est")
 	private LocalDateTime	inicio;
 
-	@Column(name = "dt_fim_est")
+	@Column(name = "ts_fim_est")
 	private LocalDateTime	fim;
 
 	@Column(name = "cd_usu_rsp_atl")

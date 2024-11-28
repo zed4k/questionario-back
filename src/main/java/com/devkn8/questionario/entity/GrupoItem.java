@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "gr_item")
+@Table(name = "gr_item_qstn")
 @lombok.Getter
 @lombok.Setter
 @lombok.NoArgsConstructor

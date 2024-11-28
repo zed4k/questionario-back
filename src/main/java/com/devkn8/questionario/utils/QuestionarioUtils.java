@@ -1,5 +1,6 @@
 package com.devkn8.questionario.utils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class QuestionarioUtils {
 		q.setNomeQuestionario(qr.getNomeQuestionario());
 		q.setCodigoTipoQuestionario(qr.getCodigoTipoQuestionario());
 		q.setCodigoSituacao(qr.getCodigoSituacao());
-		q.setInicioValidade(qr.getInicioValidade());
+		q.setInicioValidade(qr.getInicioValidade() != null ? qr.getInicioValidade() : LocalDateTime.now());
 		q.setFimValidade(qr.getFimValidade());
 		q.setObjetivo(qr.getObjetivo());
 		q.setAjuda(qr.getAjuda());

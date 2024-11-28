@@ -42,12 +42,12 @@ public class Questionario implements Serializable {
 	private Integer								codigoSituacao;
 
 	@Column(name = "TS_INC_VLDD_QSTN")
-	private LocalDateTime						inicioValidade;
+	private LocalDateTime						inicioValidade = LocalDateTime.now();
 
 	@Column(name = "TS_FIM_VLDD_QSTN")
 	private LocalDateTime						fimValidade;
 
-	@Column(name = "OBJ_QSTN", length = 1200)
+	@Column(name = "TX_OBJT_QSTN", length = 1200)
 	private String								objetivo;
 
 	@Column(name = "TX_AJD_QSTN", length = 1200)
